@@ -1,0 +1,64 @@
+{% set version = '0.1.5' %}
+
+package:
+  name: r-greatr
+  version: {{ version|replace("-", "_") }}
+
+source:
+  git_url: https://github.com/guillaumecharbonnier/greatr
+
+build:
+  number: 0
+
+  rpaths:
+    - lib/R/lib/
+    - lib/
+
+requirements:
+  host:
+    #- r-base 3.3*
+    - r-docopt
+    - r-yaml
+    - r-ggpubr
+    - r-reshape2
+    - r-scales
+    - r-reshape
+    - r-fastcluster
+    - bioconductor-rtracklayer
+    - bioconductor-rgreat
+    - bioconductor-go.db
+    - bioconductor-clusterprofiler
+    - bioconductor-gosemsim
+    - bioconductor-org.hs.eg.db
+    - bioconductor-org.mm.eg.db
+
+  run:
+    #- r-base 3.3*
+    - r-docopt
+    - r-yaml
+    - r-ggpubr
+    - r-reshape2
+    - r-scales
+    - r-reshape
+    - r-fastcluster
+    - bioconductor-rtracklayer
+    - bioconductor-rgreat
+    - bioconductor-go.db
+    - bioconductor-clusterprofiler
+    - bioconductor-gosemsim
+    - bioconductor-org.hs.eg.db
+    - bioconductor-org.mm.eg.db
+
+test:
+  commands:
+    - $R -e "library('greatr')"
+    - greatr -h
+
+about:
+  home: https://github.com/guillaumecharbonnier/greatr
+  license: MIT
+  summary: Gene Ontology enrichment analysis visualization for multiple samples using GREAT API.
+  license_family: MIT
+extra:
+  recipe-maintainers:
+    - guillaumecharbonnier
