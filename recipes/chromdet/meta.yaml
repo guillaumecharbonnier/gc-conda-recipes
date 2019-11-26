@@ -1,0 +1,32 @@
+package:
+  name: chromdet
+  version: 0.0.1
+
+source:
+  url: https://github.com/david-juan/ChromDet/archive/master.zip
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  
+  host:
+    - make
+
+  run:
+    - bedtools
+
+test:
+  commands:
+
+about:
+  home: https://github.com/david-juan/ChromDet
+  license: GPL3.0
+  summary: A method to classify different cell types from their epigenomic profiles and detect genomic regions determining this classification.
+  license_family: GPL
+extra:
+  recipe-maintainers:
+    - guillaumecharbonnier
