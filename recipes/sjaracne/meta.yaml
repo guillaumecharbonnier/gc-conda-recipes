@@ -1,0 +1,42 @@
+{% set version = "0.2.0" %}
+
+package:
+  name: sjaracne
+  version: '{{ version }}'
+
+source:
+  git_url: "https://github.com/guillaumecharbonnier/SJARACNe"
+  #url: 'https://github.com/jyyulab/SJARACNe/archive/{{ version }}.tar.gz'
+  #sha256: 19285a465885a2347f14df90d02418f84a0c1507d81da0d19dda6d59fe956d8d
+  
+build:
+  number: 0
+  #skip: True #[not py36]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - python ==3.6.1
+    - numpy <=1.17.5
+    - pandas ==0.22.0
+    - scipy ==1.0.1
+    - cwltool ==1.0.20190915164430
+    - lockfile
+    - setuptools
+  run:
+    - python ==3.6.1
+    - numpy <=1.17.5
+    - pandas ==0.22.0
+    - scipy ==1.0.1
+    - cwltool ==1.0.20190915164430
+
+  commands:
+    - sjaracne -h
+    - sjaracne.exe -h
+
+about:
+  home: https://github.com/jyyulab/SJARACNe
+  license: LICENCE.md
+  summary: 'SJARACNe is a scalable solution of ARACNe that dramatically improves the computational performance.'
